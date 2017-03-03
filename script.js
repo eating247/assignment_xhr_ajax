@@ -17,15 +17,36 @@ var $ = {
   }
 };
 
-var optionsObject = {
-  method: 'get',
-  url: "https://reqres.in/api/asdfasd",
-  headers: {},
-  data: null,
-  async: true,
-  complete: function() {console.log('CALLBACK')},
-  success: function() {console.log('SUCCESS')},
-  error: function() {console.log('ERROR')}
-};
+$.get = function(url, success, data) {
+  var options = {
+    method: 'get',
+    url: url,
+    headers: {},
+    data: data,
+    async: true,
+    success: success
+  };
 
-$.ajax(optionsObject);
+  $.ajax(options);
+}
+
+// var optionsObject = {
+//   method: 'get',
+//   url: "https://reqres.in/api/asdfasd",
+//   headers: {},
+//   data: null,
+//   async: true,
+//   complete: function() {console.log('CALLBACK')},
+//   success: function() {console.log('SUCCESS')},
+//   error: function() {console.log('ERROR')}
+// };
+
+// $.ajax(optionsObject);
+
+
+var url = "https://reqres.in/api/asdfasd";
+var success = function() {console.log('SUCCESS')};
+var data = '';
+
+$.get(url, success, data);
+
